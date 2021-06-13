@@ -4,8 +4,8 @@ package question2;
 /**
  * Décrivez votre classe FahrenheitCelsius ici.
  * 
- * @author (votre nom) 
- * @version (un numéro de version ou une date)
+@author (Cyril Saad)
+ @version (6/14/2021)
  */
 public class FahrenheitCelsius{
 
@@ -15,11 +15,17 @@ public class FahrenheitCelsius{
       *  @param args ...
       */
      public static void main(String[] args){
-       try{
-       
-      
-       }catch(NumberFormatException nfe){
-           System.out.println("error : " + nfe.getMessage());  // en cas d'erreur 
+        int fahrenheit = 0;
+        float celsius = 0;
+        for(int i=0 ; i<args.length ; i++){
+            try{
+                fahrenheit = Integer.parseInt(args[i]);
+                celsius = fahrenheitEnCelsius(fahrenheit);
+                System.out.println(fahrenheit + "\u00B0F -> " + String.format("%.1f", celsius) + "\u00B0C");
+            } catch(NumberFormatException nfe){
+              System.out.println("error : " + nfe.getMessage());  // en cas d'erreur 
+           }
+           
        }
        
      }
@@ -30,9 +36,8 @@ public class FahrenheitCelsius{
       *   @return  la conversion en degré Celsius
       */
      public static float fahrenheitEnCelsius( int f){
-       // ...
-       return 0.F;	// à compléter	en remplaçant la valeur retournée par la fonction de conversion
-       // ...
+       // à compléter    en remplaçant la valeur retournée par la fonction de conversion
+       return ((float)f-32)*5/9;
      }
 
 }
