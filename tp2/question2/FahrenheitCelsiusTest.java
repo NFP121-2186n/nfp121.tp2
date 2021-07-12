@@ -1,6 +1,6 @@
 package question2;
 
-
+import java.lang.NumberFormatException;
 /**
  * Classe-test FahrenheitCelsiusTest.
  *
@@ -68,5 +68,20 @@ public class FahrenheitCelsiusTest extends junit.framework.TestCase
      * Par convention, leurs noms devraient débuter par "test".
      * Vous pouvez ébaucher le corps grâce au menu contextuel "Enregistrer une méthode de test".
      */
+    public void test_fahrenheitEnCelsius() {
+        
+        assertEquals(-10f, question2.FahrenheitCelsius.fahrenheitEnCelsius(14));
+        assertEquals(-17.7f, question2.FahrenheitCelsius.fahrenheitEnCelsius(0));
+        assertEquals(60.0f, question2.FahrenheitCelsius.fahrenheitEnCelsius(140));
+        assertEquals(37.7f, question2.FahrenheitCelsius.fahrenheitEnCelsius(100));
+        
+        try {
+        	question2.FahrenheitCelsius.fahrenheitEnCelsius((int) (question2.FahrenheitCelsius.fahrenheitEnCelsius(Integer.parseInt("zz"))));
 
+            fail( "Missing exception" );
+       } catch( NumberFormatException e ) {
+            assertEquals( "error : For input string: \"zz\"", "error : " + e.getMessage() ); // Optionally make sure you get the correct message, too
+       }
+    }
+    
 }
